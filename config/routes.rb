@@ -1,8 +1,7 @@
 Facturas::Application.routes.draw do
+  resources :facturas
   resources :products
-
   resources :clients
-
   resources :users
 
   # The priority is based upon order of creation:
