@@ -5,7 +5,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'pdfkit'
 gem 'therubyracer'
-gem 'mysql-2.8.2'
+gem 'mysql'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
