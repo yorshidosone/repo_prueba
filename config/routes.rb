@@ -7,6 +7,7 @@ Facturas::Application.routes.draw do
   resources :users
   
   match "/download_pdf(.:format)" => "facturacion#facturar", :method => :get, :as=>:pdf_printer
+  match "/signup", to: "users#new"
 
 
   # The priority is based upon order of creation:

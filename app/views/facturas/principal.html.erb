@@ -16,7 +16,7 @@
         	<div class="account">
         		<ul>
         			<li>Aggero Solutions</li>
-        			<li>Mi cuenta</li>
+        			<li><%= link_to "Crear cuenta", signup_path%></li>
         			<li>Salir</li>
         		</ul>
         	</div>
@@ -26,15 +26,15 @@
         	<div class="menu">
         		<div class="element">
 	        		<div class="bullet1"><img src="facturas.png" /></div>	
-	        		<div class="text1">Facturas</div>
+	        		<div class="text1"><%= link_to "Facturas",      facturas_path %></div>
         		</div>
         		<div class="element">
         			<div class="bullet2"><img src="clientes.png" /></div>
-        			<div class="text2">Clientes</div>
+        			<div class="text2"><%= link_to "Clientes",      clients_path %></div>
         		</div>
         		<div class="element">
         			<div class="bullet3"><img src="productos.png" /></div>
-        			<div class="text3">Productos</div>
+        			<div class="text3"><%= link_to "Productos",      products_path %></div>
         		</div>
         		<div class="element">
         			<div class="bullet4"><img src="reportes.png" /></div>

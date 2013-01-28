@@ -1,5 +1,42 @@
-<h1>Nuevo Usuario</h1>
+<h1>Crear cuenta</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Regresar', users_path %>
+<div class="row">
+  <div class="span6 offset3">
+  	<table>
+    <%= form_for(@user) do |f| %>
+	  <%= render 'shared/error_messages'%>
+      <td><%= f.label :empresa, "Nombre de la empresa" %></td>
+      <td><%= f.text_field :empresa %></td>
+      </tr>
+      <td><%= f.label :password, "Password" %></td>
+      <td><%= f.password_field :password %></td>
+      </tr>
+      <td><%= f.label :password_confirmation, "Confirmación de password" %></td>
+      <td><%= f.password_field :password_confirmation %></td>
+      </tr>
+      <td><%= f.label :rfc, "RFC" %></td>
+      <td><%= f.text_field :rfc %></td>
+	  </tr>
+      <td><%= f.label :reg_fiscal, "Régimen fiscal" %></td>
+      <td><%= f.text_field :reg_fiscal %></td>
+      </tr>
+      <td><%= f.label :direccion, "Dirección física"%></td>
+      <td><%= f.text_field :direccion %></td>
+      </tr>
+      <td><%= f.label :estado, "Estado" %></td>
+      <td><%= f.text_field :estado %></td>
+      </tr>
+      <td><%= f.label :ciudad, "Ciudad" %></td>
+      <td><%= f.text_field :ciudad %></td>
+      </tr>
+      <td><%= f.label :cp, "Código postal" %></td>
+      <td><%= f.text_field :cp %></td>
+      </tr>
+      <td><%= f.label :tel, "Teléfono" %></td>
+      <td><%= f.text_field :tel %></td>
+	  </tr>
+      <td><%= f.submit "Crear mi cuenta", class: "btn btn-large btn-primary" %></td>
+    <% end %>
+    </table>
+  </div>
+</div>

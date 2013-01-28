@@ -1,7 +1,18 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <p id="notice"><%= notice %></p>
 
-
-
+<table>
+<td><% Client.all.each do |client| %></td>
+  
+  	<td><% if(client.user_id == @user.user_id) %></td>
+  	<tr>
+	  	<td><%= client.nombre %></td>
+	    <td><%= link_to 'Mostrar', @user %></td>
+	    <td><%= link_to 'Editar', edit_user_path(@user) %></td>
+	    <td><%= link_to 'Destruir', @user, method: :delete, data: { confirm: 'Estas seguro de borrar a este usuario?' } %></td>
+	</tr>
+	<% end %>
+  
+<% end %>
+</table>
 <%= link_to 'Regresar', users_path %>
-

@@ -7,9 +7,9 @@
     <th></th>
   </tr>
 
-<td><% @users.each do |user| %></td>
+<td><% User.all.each do |user| %></td>
   <tr>
-  	
+  	<td><%= user.empresa %></td>
     <td><%= link_to 'Mostrar', user %></td>
     <td><%= link_to 'Editar', edit_user_path(user) %></td>
     <td><%= link_to 'Destruir', user, method: :delete, data: { confirm: 'Estas seguro de borrar a este usuario?' } %></td>
