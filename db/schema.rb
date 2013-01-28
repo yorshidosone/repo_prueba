@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116225817) do
+ActiveRecord::Schema.define(:version => 20130118192618) do
 
   create_table "clients", :force => true do |t|
     t.string   "nombre"
@@ -20,31 +20,32 @@ ActiveRecord::Schema.define(:version => 20130116225817) do
     t.string   "municipio"
     t.string   "direccion"
     t.integer  "CP"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "detalles_facturas", :force => true do |t|
+  create_table "facturas", :primary_key => "factura_id", :force => true do |t|
     t.integer  "folio"
-    t.integer  "sku"
-    t.integer  "cantidad"
-    t.decimal  "p_unit",      :precision => 10, :scale => 0
-    t.string   "u_medida"
-    t.string   "descripcion"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-  end
-
-  create_table "facturas", :primary_key => "folio", :force => true do |t|
     t.date     "fecha"
-    t.string   "n_cliente"
+    t.integer  "client_id"
+    t.integer  "user_id"
+    t.integer  "facturas_producto_id"
     t.string   "m_pago"
-    t.decimal  "total",      :precision => 10, :scale => 0
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.decimal  "total",                :precision => 10, :scale => 0
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
   end
 
-  create_table "products", :primary_key => "sku", :force => true do |t|
+  create_table "facturas_productos", :force => true do |t|
+    t.integer  "factura_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :primary_key => "product_id", :force => true do |t|
+    t.integer  "sku"
     t.string   "descripcion"
     t.decimal  "p_unit",      :precision => 10, :scale => 0
     t.string   "u_medida"
@@ -61,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20130116225817) do
     t.string  "ciudad"
     t.integer "cp"
     t.string  "tel"
+    t.string  "logo_url"
+    t.string  "bdd"
   end
 
 end

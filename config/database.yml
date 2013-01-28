@@ -19,7 +19,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: facturas_test
+  database: ejemplod
   pool: 5
   username: root
   password: agg2012

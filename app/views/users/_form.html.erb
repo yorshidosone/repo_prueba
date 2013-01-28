@@ -11,6 +11,49 @@
     </div>
   <% end %>
 
+  <fieldset>
+  	<legend>Ingrese los detalles del Usuario</legend>
+	<div>
+    <%= f.label :empresa %>:
+    <%= f.text_field :empresa, :size => 50 %>
+  </div>
+  
+  <div>
+    <%= f.label :rfc %>:
+    <%= f.text_field :rfc, :size => 13 %>
+  </div>
+  
+  <div>
+    <%= f.label :reg_fiscal %>:
+    <%= f.text_field :reg_fiscal %>
+  </div>  
+  
+  <div>
+    <%= f.label :direccion %>:
+    <%= f.text_field :direccion %>
+  </div>
+
+  <div>
+    <%= f.label :estado %>:
+    <%= f.text_field :estado %>
+  </div>
+  
+  <div>
+    <%= f.label :ciudad %>:
+    <%= f.text_field :ciudad %>
+  </div>
+
+  <div>
+    <%= f.label :cp %>:
+    <%= f.text_field :cp %>
+  </div>
+  
+  <div>
+    <%= f.label :tel %>:
+    <%= f.text_field :tel %>
+  </div>
+  
+  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>

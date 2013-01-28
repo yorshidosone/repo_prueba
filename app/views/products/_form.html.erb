@@ -11,6 +11,24 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :sku %>
+    <%= f.text_field :sku %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_area :descripcion, :rows => 6 %>
+  </div>
+  <div class="field">
+    <%= f.label :p_unit, 'Precio unitario' %>
+    <%= f.text_field :p_unit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :u_medida, 'Unidad de medida' %>
+    <%= f.text_field :u_medida %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

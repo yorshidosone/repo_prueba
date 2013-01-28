@@ -11,7 +11,39 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <fieldset>
+  	<legend>Ingrese los detalles del cliente</legend>
+	<div>
+    <%= f.label :nombre %>:
+    <%= f.text_field :nombre, :size => 50 %>
+  </div>
+
+  <div>
+    <%= f.label :RFC %>:
+    <%= f.text_field :RFC, :size => 13 %>
+  </div>
+  
+  <div>
+    <%= f.label :estado %>:
+    <%= f.text_field :estado %>
+  </div>
+
+  <div>
+    <%= f.label :municipio %>:
+    <%= f.text_field :municipio %>
+  </div>
+
+  <div>
+    <%= f.label :direccion %>:
+    <%= f.text_field :direccion %>
+  </div>
+
+  <div>
+    <%= f.label :CP %>:
+    <%= f.text_field :CP %>
+  </div>
+  </fieldset>
+    <div>
     <%= f.submit %>
   </div>
 <% end %>

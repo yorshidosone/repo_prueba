@@ -1,6 +1,6 @@
 class CreateProducts < ActiveRecord::Migration
   def self.up
-    create_table :products, { :id => false } do |t|
+    create_table :products do |t|
       t.integer :sku
       t.string :descripcion
       t.decimal :p_unit
@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration
 
       t.timestamps
     end
-    execute "ALTER TABLE products ADD PRIMARY KEY(sku)"
+    execute "ALTER TABLE products CHANGE id product_id int NOT NULL AUTO_INCREMENT;"
   end
   
   def self.down

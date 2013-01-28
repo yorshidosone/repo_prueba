@@ -3,8 +3,9 @@ class Product < ActiveRecord::Base
   
   belongs_to :user
   
-  has_many :detallesfacturas
+  has_many :facturas_productos#, :foreign_key => "product_id"#, :foreign_key => "sku"
+  has_many :facturas, :through => :facturas_productos
   
   
-  validates :descripcion, :p_unit, :u_medida, :sku, presence: true
+  validates :descripcion, :p_unit, :u_medida, :sku, :presence => { :message => "no puede estar vacío" }
 end

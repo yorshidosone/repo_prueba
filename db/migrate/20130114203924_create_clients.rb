@@ -7,6 +7,7 @@ class CreateClients < ActiveRecord::Migration
       t.string :municipio
       t.string :direccion
       t.integer :CP
+      t.references :user
 
       t.timestamps
     end

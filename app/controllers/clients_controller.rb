@@ -41,7 +41,7 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
-
+    
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
@@ -80,4 +80,8 @@ class ClientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def index_pdf
+    render :pdf => "client", :template => '/clients/index', :page_size => "A2"
+  end     
 end

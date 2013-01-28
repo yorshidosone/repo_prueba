@@ -1,17 +1,19 @@
-<h1>Listing clients</h1>
+<h1>Listando clientes</h1>
 
 <table>
   <tr>
-    <th></th>
+    <th>Nombre</th>
     <th></th>
     <th></th>
   </tr>
 
-<% @clients.each do |client| %>
+<td><% Client.all.each do |client| %></td>
   <tr>
-    <td><%= link_to 'Show', client %></td>
-    <td><%= link_to 'Edit', edit_client_path(client) %></td>
-    <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<td><%= client.nombre %></td>
+  	<td><%= User.find_by_user_id(client.user_id).empresa %></td>
+    <td><%= link_to 'Mostrar', client %></td>
+    <td><%= link_to 'Editar', edit_client_path(client) %></td>
+    <td><%= link_to 'Destruir', client, method: :delete, data: { confirm: '¿Estas seguro de borrar a éste cliente?' } %></td>
   </tr>
 <% end %>
 </table>

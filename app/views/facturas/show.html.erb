@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Title:</b>
+  <%= Factura.find_by_factura_id(14).folio %>
+</p>
 
-<%= link_to 'Edit', edit_factura_path(@factura) %> |
 <%= link_to 'Back', facturas_path %>

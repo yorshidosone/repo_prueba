@@ -11,6 +11,24 @@
     </div>
   <% end %>
 
+  <fieldset>
+  	<legend>Ingrese los detalles del cliente</legend>
+	<div>
+    <%= f.label :folio %>:
+    <%= f.text_field :folio %>
+  </div>
+
+  <div>
+    <%= f.label :fecha %>:
+    <%= f.text_field :fecha %>
+  </div>
+  
+  <div>
+    <%= f.label :m_pago, "Método de pago" %>:
+    <%= f.text_field :m_pago %>
+  </div>
+
+  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -9,6 +9,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :ciudad
       t.integer :cp
       t.string :tel
+      t.string :logo_url
+      t.string :bdd
       
     end
   end

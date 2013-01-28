@@ -2,4 +2,5 @@
 
 <%= render 'form' %>
 
+<%= link_to 'Create PDF document', pdf_printer_path(@factura, :format => :pdf) %>
 <%= link_to 'Back', facturas_path %>
