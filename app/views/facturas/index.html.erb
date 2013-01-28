@@ -9,7 +9,8 @@
 
 <td><% Factura.all.each do |factura| %></td>
   <tr>
-  	<td></td>
+  	<td><% id = Client.find_by_client_id(factura.client_id).user_id %></td>
+  	<td><%= User.find_by_user_id(id).empresa %></td>
     <td><%= link_to 'Mostrar', factura %></td>
     <td><%= link_to 'Cancelar', factura, method: :delete, data: { confirm: '¿Estas seguro que deseas cancelar ésta factura?' } %></td>
   </tr>

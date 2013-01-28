@@ -13,20 +13,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    #wp = WickedPdf.new
     @user = User.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-
-      #format.json { render json: @user }
-      #pdf = WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>') #FUNCIONA!
-      #pdf = wp.pdf_from_string ( render_to_string(:pdf => "filename_template.pdf", :template => 'users/show.html.erb' ) ) 
-      #pdf = render_to_string :pdf => "index"
-      #save_path = Rails.root.join('pdfs','filename_template.pdf')
-      #File.open(save_path, 'wb') do |file|
-       # file << pdf
-      #end      
+      format.json { render json: @user }
+    
     end
   end
 

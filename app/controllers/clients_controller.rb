@@ -79,9 +79,5 @@ class ClientsController < ApplicationController
       format.html { redirect_to clients_url }
       format.json { head :no_content }
     end
-  end
-
-  def index_pdf
-    render :pdf => "client", :template => '/clients/index', :page_size => "A2"
-  end     
+  end  
 end

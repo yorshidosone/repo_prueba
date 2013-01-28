@@ -6,6 +6,7 @@ gem 'wkhtmltopdf-binary'
 gem 'pdfkit'
 gem 'therubyracer'
 gem 'mysql'
+gem 'bcrypt-ruby'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
