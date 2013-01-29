@@ -1,14 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Facturas</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+  		<%= stylesheet_link_tag    "application", :media => "all" %>
+  		<%= javascript_include_tag "application" %>
+  		<%= csrf_meta_tags %>
+    	
+        <title>New Web Project</title>
+    </head>
+    <body>
+        <div class="header">
+        	<div class="image">
+        		<img src="logo_round.png" />
+        	</div>
+        	<div class="account">
+	          <% if signed_in? %>
+        		<ul>
+        			<li><%= current_user.empresa %></li>
+        			<li><%= link_to "Mi cuenta", current_user %></li>
+        			<li><%= link_to "Salir", signout_path, method: "delete" %></li>
+        		</ul>
+	          <% else %>
+	            <li><%= link_to "Iniciar sesión", signin_path %></li>
+	          <% end %>
+        	</div>
+        </div>
+	      <% flash.each do |key, value| %>
+	        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+	      <% end %>  
+        <div class="main_panel">
+        	<div class="menu">
+        		<div class="element">
+	        		<div class="bullet1"><img src="facturas.png" /></div>	
+	        		<div class="text1"><%= link_to "Facturas",      facturas_path %></div>
+        		</div>
+        		<div class="element">
+        			<div class="bullet2"><img src="clientes.png" /></div>
+        			<div class="text2"><%= link_to "Clientes",      clients_path %></div>
+        		</div>
+        		<div class="element">
+        			<div class="bullet3"><img src="productos.png" /></div>
+        			<div class="text3"><%= link_to "Productos",      products_path %></div>
+        		</div>
+        		<div class="element">
+        			<div class="bullet4"><img src="reportes.png" /></div>
+        			<div class="text4">Reportes</div>
+        		</div>
+        	</div>
+        	<div class="content_panel">
+        		<div class="content_header">
+        			
+        		</div>
+        		<div class="content">
+        			<%= yield %>
+        		</div>
+        	</div>
+        </div>
+    </body>
 </html>

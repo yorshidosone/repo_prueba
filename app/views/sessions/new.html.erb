@@ -1,0 +1,18 @@
+<h1>Inicio de sesi&oacute;n</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :empresa %>
+      <%= f.text_field :empresa %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Iniciar sesión", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <p>¿Nuevo usuario? <%= link_to "Crea tu cuenta ahora", signup_path %></p>
+  </div>
+</div>

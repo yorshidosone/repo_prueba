@@ -11,59 +11,71 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118192618) do
+ActiveRecord::Schema.define(:version => 20130128225347) do
 
-  create_table "clients", :force => true do |t|
-    t.string   "nombre"
-    t.string   "RFC"
-    t.string   "estado"
-    t.string   "municipio"
-    t.string   "direccion"
-    t.integer  "CP"
-    t.integer  "user_id"
+  create_table "clients", :primary_key => "client_id", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.string   "nombre",     :null => false
+    t.string   "RFC",        :null => false
+    t.string   "estado",     :null => false
+    t.string   "municipio",  :null => false
+    t.string   "direccion",  :null => false
+    t.integer  "CP",         :null => false
     t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
+
+  add_index "clients", ["user_id"], :name => "user_id_idx"
 
   create_table "facturas", :primary_key => "factura_id", :force => true do |t|
-    t.integer  "folio"
-    t.date     "fecha"
-    t.integer  "client_id"
-    t.integer  "user_id"
-    t.integer  "facturas_producto_id"
-    t.string   "m_pago"
-    t.decimal  "total",                :precision => 10, :scale => 0
-    t.datetime "created_at",                                          :null => false
-    t.datetime "updated_at",                                          :null => false
+    t.integer "user_id",                                  :null => false
+    t.integer "client_id",                                :null => false
+    t.integer "folio",                                    :null => false
+    t.date    "fecha",                                    :null => false
+    t.string  "m_pago",                                   :null => false
+    t.decimal "total",     :precision => 10, :scale => 0, :null => false
   end
 
-  create_table "facturas_productos", :force => true do |t|
-    t.integer  "factura_id"
-    t.integer  "product_id"
+  add_index "facturas", ["client_id"], :name => "fk_facturas_client_idx"
+  add_index "facturas", ["folio"], :name => "folio_UNIQUE", :unique => true
+  add_index "facturas", ["user_id"], :name => "fk_facturas_user_idx"
+
+  create_table "facturas_productos", :primary_key => "facturas_productos_id", :force => true do |t|
+    t.integer  "factura_id", :null => false
+    t.integer  "product_id", :null => false
     t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
+
+  add_index "facturas_productos", ["factura_id"], :name => "fk_facturas_productos_factura_idx"
+  add_index "facturas_productos", ["product_id"], :name => "fk_facturas_productos_product_idx"
 
   create_table "products", :primary_key => "product_id", :force => true do |t|
-    t.integer  "sku"
-    t.string   "descripcion"
-    t.decimal  "p_unit",      :precision => 10, :scale => 0
-    t.string   "u_medida"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.integer  "fk_user_id",                                               :null => false
+    t.string   "sku",         :limit => 10,                                :null => false
+    t.string   "descripcion",                                              :null => false
+    t.decimal  "p_unit",                    :precision => 10, :scale => 0, :null => false
+    t.string   "u_medida",                                                 :null => false
+    t.datetime "created_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string  "rfc"
-    t.string  "empresa"
-    t.string  "reg_fiscal"
-    t.string  "direccion"
-    t.string  "estado"
-    t.string  "ciudad"
-    t.integer "cp"
-    t.string  "tel"
+  add_index "products", ["fk_user_id"], :name => "client_id_idx"
+
+  create_table "users", :primary_key => "user_id", :force => true do |t|
+    t.string  "empresa",         :limit => 60, :null => false
+    t.string  "rfc",             :limit => 15, :null => false
+    t.string  "reg_fiscal",      :limit => 40, :null => false
+    t.string  "direccion",       :limit => 65, :null => false
+    t.string  "estado",          :limit => 20, :null => false
+    t.string  "ciudad",          :limit => 20, :null => false
+    t.integer "cp",                            :null => false
+    t.string  "tel",             :limit => 21, :null => false
     t.string  "logo_url"
     t.string  "bdd"
+    t.string  "password_digest"
+    t.string  "remember_token"
   end
+
+  add_index "users", ["empresa"], :name => "empresa_UNIQUE", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  add_index "users", ["rfc"], :name => "rfc_UNIQUE", :unique => true
 
 end

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :clients
   has_many :facturas
   
+  before_save :create_remember_token
   #VALIDACIONES DE CAMPOS
   validates :empresa, :reg_fiscal, :rfc, :tel, :estado, :ciudad, :direccion, :presence => { :message => "no puede estar en blanco" }
   validates :empresa, :length => { :maximum => 60, :minimum => 4, :message => "de longitud incorrecta, debe ser de 4 a 60 caracteres" }
@@ -17,4 +18,10 @@ class User < ActiveRecord::Base
   validates :password, :length => { minimum: 6, :message => "es muy corto, debe tener al menos 6 caracteres" }
   validates :password_confirmation, :presence => { :message => "no puede estar en blanco" }
   
+  
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end  
 end

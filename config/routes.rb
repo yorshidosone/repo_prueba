@@ -5,9 +5,12 @@ Facturas::Application.routes.draw do
   resources :products
   resources :clients
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   
   match "/download_pdf(.:format)" => "facturacion#facturar", :method => :get, :as=>:pdf_printer
   match "/signup", to: "users#new"
+  match "/signin", to: "sessions#new"
+  match "/signout", to: "sessions#destroy", via: :delete
 
 
   # The priority is based upon order of creation:
@@ -59,7 +62,7 @@ Facturas::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'facturas#principal'
+  root :to => 'facturas#index'
 
   # See how all your routes lay out with "rake routes"
 

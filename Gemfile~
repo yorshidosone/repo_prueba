@@ -7,6 +7,7 @@ gem 'pdfkit'
 gem 'therubyracer'
 gem 'mysql'
 gem 'bcrypt-ruby'
+gem 'bootstrap'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
