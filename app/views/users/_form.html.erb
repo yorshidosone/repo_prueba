@@ -52,7 +52,16 @@
     <%= f.label :tel %>:
     <%= f.text_field :tel %>
   </div>
-  
+
+  <div>
+    <%= f.label :logo, "Logotipo de la empresa" %>:
+    <%= f.file_field :logo %>
+  </div>
+
+  <div>
+    <%= f.label :bdd, "Codigo bidimensional" %>:
+    <%= f.file_field :bdd %>
+  </div>    
   </fieldset>
   <div class="actions">
     <%= f.submit %>

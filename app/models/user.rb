@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :user_id, :empresa, :rfc, :reg_fiscal, :tel, :cp, :estado, :ciudad, :direccion, :password, :password_confirmation
+  attr_accessible :user_id, :empresa, :rfc, :reg_fiscal, :tel, :cp, :estado, :ciudad, :direccion, 
+                  :password, :password_confirmation, :logo, :bdd
   
+  mount_uploader :logo, LogoUploader
+  mount_uploader :bdd, BddUploader
   has_secure_password
   
   has_many :clients

@@ -35,6 +35,12 @@
       <td><%= f.label :tel, "Teléfono" %></td>
       <td><%= f.text_field :tel %></td>
 	  </tr>
+	  <td><%= f.label :logo, "Logotipo de la empresa" %></td>
+      <td><%= f.file_field :logo %></td>
+      </tr>
+  	  <td><%= f.label :bdd, "Codigo bidimensional" %></td>
+      <td><%= f.file_field :bdd %></td>
+      </tr>
       <td><%= f.submit "Crear mi cuenta", class: "btn btn-large btn-primary" %></td>
     <% end %>
     </table>
