@@ -17,7 +17,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "/home/aggero/Desktop/#{model.empresa.to_s.underscore}/#{mounted_as}"
+    "#{::Rails.root.to_s}/app/assets/images/#{model.empresa.to_s.underscore}/"#{mounted_as}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -36,9 +36,9 @@ class LogoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
-  # end
+  #version :thumb do
+   # process :resize_to_limit => [200, 200]
+  #end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -48,8 +48,8 @@ class LogoUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    "logo.jpg" if original_filename
+  end
 
 end

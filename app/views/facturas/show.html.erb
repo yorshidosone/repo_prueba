@@ -3,6 +3,9 @@
 <p>
   <b>Title:</b>
   <%= Factura.find_by_factura_id(14).folio %>
+  <% @user = User.find_by_user_id(46) %>
+  <%= image_tag ("#{@user.empresa.underscore}/logo.jpg") %>
+  
 </p>
 
 <%= link_to 'Back', facturas_path %>
