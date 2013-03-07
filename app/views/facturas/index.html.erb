@@ -1,21 +1,34 @@
-<h1>Listando facturas</h1>
+<% provide(:title, 'Facturas recientes') %>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Folio</th>
+    <th>Fecha</th>
+    <th>Cliente</th>
+    <th>Monto</th>
   </tr>
 
-<td><% Factura.all.each do |factura| %></td>
-  <tr>
-  	<td><% id = Client.find_by_client_id(factura.client_id).user_id %></td>
-  	<td><%= User.find_by_user_id(id).empresa %></td>
-    <td><%= link_to 'Mostrar', factura %></td>
-    <td><%= link_to 'Cancelar', factura, method: :delete, data: { confirm: '¿Estas seguro que deseas cancelar ésta factura?' } %></td>
-  </tr>
+<% Factura.all.each do |factura| %></td>
+
+		<% cliente = Client.find_by_client_id(factura.client_id) %>
+		<td><% if(cliente.user_id == current_user.user_id) %></td>
+		  <tr>
+		  	<td><%= factura.folio %></td>
+		  	<td><%= factura.fecha.strftime("%d/%m/%Y") %></td>
+		  	<td><%= Client.find_by_client_id(factura.client_id).nombre %></td>
+		  	<td><%= factura.total %></td>
+		    <td><%= link_to 'Ver', factura %>&nbsp;|&nbsp;</td>
+		    <% if factura.activa %>
+		    <td><%= link_to 'Cancelar', factura, method: :put, data: { confirm: '¿Estas seguro que deseas cancelar ésta factura?' } %></td>
+			<% else %>
+			<td><%= "Cancelada" %></td>
+		    <% end %>
+		    
+		  </tr>
+		  <% end %>
 <% end %>
 </table>
+<%= will_paginate @facturas %>
 
 <br />
 

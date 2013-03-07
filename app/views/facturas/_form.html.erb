@@ -1,35 +1,89 @@
-<%= form_for(@factura) do |f| %>
-  <% if @factura.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@factura.errors.count, "error") %> prohibited this factura from being saved:</h2>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script>
+$(document).ready(function(){
+	$( "#nombre" ).autocomplete({
+		// minLength: 3,
+		source: '<%= clients_path(:json) %>',
+		focus: function(event, ui) {
+			
+			$("#nombre").val(ui.item.nombre);
+			return false;
+		},
+	    select: function( event, ui ) {
+	    	
+	    	$("#nombre").val(ui.item.nombre);
+	        $("#id_client").val(ui.item.client_id);
+	        $("#rfc").val(ui.item.RFC);
+	        $("#dir").val(ui.item.direccion);
+	        $("#edo").val(ui.item.estado);
+	        $("#cd").val(ui.item.municipio);
+	        $("#cp").val(ui.item.CP);
+	        return false;
+	    }
+		}).data("uiAutocomplete")._renderItem = function(ul, item) {
+				return $("<li></li>").data("item.autocomplete", item).append(
+	      '<a>' + item.nombre + '</a>').appendTo(ul);
+	    };
+});
+</script>
+    <%= form_for(@factura) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+  		<div class="clientes_data">
+	  		<legend>Ingrese los detalles del cliente</legend>
+ 				ID: <%= f.text_field :client_id, :size => 5, :id => "id_client" %>   RFC: <input type="text" id="rfc" size=5>     FOLIO <%= f.text_field :folio, :size => 5%><!-- Tel&eacute;fono: <input type="text" name="Tel">--><br />
+				NOMBRE: <input type="text" id="nombre" size="70" ><br />
+				DIRECCI&Oacute;N: <input type="text" id="dir" size="70" ><br />
+				ESTADO: <input type="text" id="edo">   CIUDAD: <input type="text" id="cd">    C.P. <input type="text" id="cp" size = 7>
+  		</div>
+  		<div class="forma_pago">
+  			<%= f.label :m_pago, "Forma de pago" %>
+  			<%= f.select :m_pago, options_for_select([["Efectivo", "t"], ["Tarjeta bancaria", "s"], ["Transferencia bancaria", "b"]]) %>
+  		</div>
 
-      <ul>
-      <% @factura.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  			<div class="tabla_prods">
+  				<div class="titulos">
+  					<div class="t1">CANT</div>
+  					<div class="t2">SKU</div>
+  					<div class="t3">UNIDAD DE MEDIDA</div>
+  					<div class="t4">DESCRIPCI&Oacute;N</div>
+  					<div class="t5">PRECIO</div>
+  					<div class="t6">IMPORTE</div>
+  				</div>
+  				<div class="prods">
+  				<%= f.fields_for :facturas_productos do |builder| %>
+  					<%= render "facturas_producto_fields", :f => builder %>
+  					<%= link_to_add_fields "Agregar producto", f, :facturas_productos %>
+  				<% end %>
+  				</div>
+  			</div>
+  			
+  			
+		<div id="observ" style="height:150px;width:300px;float:left;">
+			<b>Observaciones</b><br>
+			<div class="observ_text"><input type="text" style="height: 90px;width: 290px"/></div>
+		</div>
+		
+		<div id="numeros" style="height:150px;width:400px;float:left;"><br />
+			<div class="subtotal">
+				<div class="titulo1"><b>Subtotal</b></div>
+				<div class="valor1"><input type="text" id="valor_subtotal" size= "5" readonly="true"></div>
+			</div>
+			<div class="descuento">
+				<div class="titulo2"><b>Descuento</b></div>
+				<div class="valor2"><input type="text" id="desc" size= "5" readonly="true"></div>
+			</div>
+			<div class="iva">
+				<div class="titulo3"><b>IVA</b></div>
+				<div class="valor3"><input type="text" id="valor_iva" size= "5" readonly="true"></div>
+			</div>
+			<div class="total">
+				<div class="titulo4"><b>Total</b></div>
+				<div class="valor4"><%= f.text_field :total, :id => "valor_total", :readonly => true, :value => 0 %></div>
+			</div>
+		</div>
+		<div id="botonpdf" style="clear:both;text-align:left;">
+			<%= f.submit "Crear factura"%> &oacute; <%= link_to "Cancelar", facturas_path %>
+		</div>
 
-  <fieldset>
-  	<legend>Ingrese los detalles del cliente</legend>
-	<div>
-    <%= f.label :folio %>:
-    <%= f.text_field :folio %>
-  </div>
-
-  <div>
-    <%= f.label :fecha %>:
-    <%= f.text_field :fecha %>
-  </div>
-  
-  <div>
-    <%= f.label :m_pago, "Método de pago" %>:
-    <%= f.text_field :m_pago %>
-  </div>
-
-  </fieldset>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <% end %>

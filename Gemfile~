@@ -8,6 +8,7 @@ gem 'therubyracer'
 gem 'mysql'
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
+gem 'carrierwave'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

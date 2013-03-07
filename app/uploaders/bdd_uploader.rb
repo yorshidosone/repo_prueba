@@ -17,7 +17,7 @@ class BddUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.empresa.to_s.underscore}/"#{mounted_as}"
+    "#{::Rails.root.to_s}/app/assets/images/#{model.empresa.to_s.underscore}/"#{mounted_as}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -36,9 +36,9 @@ class BddUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  #version :thumb do
+  # version :thumb do
    # process :resize_to_limit => [200, 200]
-  #end
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

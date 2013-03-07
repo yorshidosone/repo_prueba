@@ -1,15 +1,21 @@
+#encoding: utf-8
 class ClientsController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+  
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
-
+    if params[:term]
+      @clients = Client.find(:all, :conditions => ['user_id = ' + "#{current_user.user_id}" +
+                  ' and nombre LIKE ?', "%#{params[:term]}%"])
+    else
+      @clients = Client.all
+    end
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @clients }
-    end
+      format.json { render json: @clients.to_json }
   end
-
+end
   # GET /clients/1
   # GET /clients/1.json
   def show
@@ -17,7 +23,8 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @client }
+      format.json { render json: @client, :layout => true }
+      
     end
   end
 
@@ -28,7 +35,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @client }
+      format.json { render json: @client, :layout => "application" }
     end
   end
 
@@ -41,10 +48,12 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
+    @client.user_id = current_user.user_id
     
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        format.html { redirect_to @client, notice: 'Cliente fue creaado satisfactoriamente.' }
+        format.js
         format.json { render json: @client, status: :created, location: @client }
       else
         format.html { render action: "new" }
@@ -60,7 +69,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
+        format.html { redirect_to @client, notice: 'Cliente fue actualizado correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,5 +88,12 @@ class ClientsController < ApplicationController
       format.html { redirect_to clients_url }
       format.json { head :no_content }
     end
-  end  
+  end
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Página protegida, por favor inicie sesión."
+      end
+    end   
 end

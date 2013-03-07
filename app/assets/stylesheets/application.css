@@ -12,3 +12,133 @@
  *= require_tree .
  */
 
+
+html{
+	margin: 0px;
+}
+
+body {
+	margin: 0px;
+	background-color: #E6E7E8;
+}
+
+.header{
+	height: 130px;
+	margin-bottom: 20px;
+}
+
+.image{
+	float: left;
+	margin-left: 100px;
+	margin-top: 15px;
+}
+
+.account{
+	float:right;
+}
+
+.account ul{
+	list-style-type: none;
+	margin-right: 30px;
+}
+
+.account ul li{
+	float:left;
+	padding-right: 20px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 15px;
+	border-right: #CCCCCC;
+	border-right-style: solid;
+	border-right-width: 1px;
+	
+}
+
+.menu{
+	width: 20%;
+	padding-left: 30px;
+	padding-top: 20px;
+	float:left;
+}
+
+.element{
+	height: 80px;
+}
+
+.bullet1{
+	float:left;
+	padding-right: 30px;
+	padding-top:10px;
+	padding-left: 30px;
+}
+
+.bullet2{
+	float:left;
+	padding-right: 30px;
+	padding-top:21px;
+	padding-left: 30px;
+}
+
+.bullet3{
+	float:left;
+	padding-right: 30px;
+	padding-top:24px;
+	padding-left: 30px;
+}
+
+.bullet4{
+	float:left;
+	padding-right: 30px;
+	padding-top:18px;
+	padding-left: 30px;
+}
+
+.text1{
+	padding-top: 23px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 20px;
+}
+
+.text2{
+	padding-top: 24px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 20px;
+}
+
+.text3{
+	padding-top: 24px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 20px;
+}
+
+.text4{
+	padding-top: 26px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 20px;
+}
+
+.content_panel{
+	width: 70%;
+	margin-left:350px;
+	background-color: #FFFFFF;
+	
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	
+	-moz-box-shadow:    0px 0px 3px 3px #ccc;
+  	-webkit-box-shadow: 0px 0px 3px 3px #ccc;
+  	box-shadow:         0px 0px 3px 3px #ccc;
+}
+
+.content_header{
+	 border-top-left-radius: 20px;
+	 border-top-right-radius: 20px;
+	 border-bottom-right-radius: 0px;
+	 border-bottom-left-radius: 0px;
+	
+	height: 80px;
+	background-color: #DFF2FC;
+}
+
+.ui-helper-hidden-accessible { display:none; }

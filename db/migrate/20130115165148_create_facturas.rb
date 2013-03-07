@@ -4,8 +4,6 @@ class CreateFacturas < ActiveRecord::Migration
       t.integer :folio
       t.date :fecha
       t.references :client
-      t.references :user
-      t.references :facturas_producto
       t.string :m_pago
       t.decimal :total
 

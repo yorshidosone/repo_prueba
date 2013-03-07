@@ -1,49 +1,29 @@
-<%= form_for(@client) do |f| %>
-  <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
-
-      <ul>
-      <% @client.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= render 'shared/error_messages', object: f.object %>
   <fieldset>
   	<legend>Ingrese los detalles del cliente</legend>
-	<div>
-    <%= f.label :nombre %>:
-    <%= f.text_field :nombre, :size => 50 %>
-  </div>
-
-  <div>
-    <%= f.label :RFC %>:
-    <%= f.text_field :RFC, :size => 13 %>
-  </div>
-  
-  <div>
-    <%= f.label :estado %>:
-    <%= f.text_field :estado %>
-  </div>
-
-  <div>
-    <%= f.label :municipio %>:
-    <%= f.text_field :municipio %>
-  </div>
-
-  <div>
-    <%= f.label :direccion %>:
-    <%= f.text_field :direccion %>
-  </div>
-
-  <div>
-    <%= f.label :CP %>:
-    <%= f.text_field :CP %>
-  </div>
+	  <div>
+	    <%= f.label :RFC %>:
+	    <%= f.text_field :RFC, :size => 13 %>
+	  </div>
+	  	
+	  <div>
+		<%= f.label :nombre %>:
+		<%= f.text_field :nombre, :size => 50 %>
+	  </div>
+	  
+	  <div>
+	    <%= f.label :direccion %>:
+	    <%= f.text_field :direccion, :size => 50 %>
+	  </div>  
+	  
+	  <div>
+	    <%= f.label :estado %>:
+	    <%= f.text_field :estado, :size => 20 %>
+	
+	    <%= f.label :municipio %>:
+	    <%= f.text_field :municipio, :size => 20 %>
+	
+	    <%= f.label :CP %>:
+	    <%= f.text_field :CP, :size => 20 %>
+	  </div>
   </fieldset>
-    <div>
-    <%= f.submit %>
-  </div>
-<% end %>

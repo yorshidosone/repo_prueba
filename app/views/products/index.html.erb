@@ -1,18 +1,23 @@
-<h1>Listando productos</h1>
+<% provide(:title, 'Listando productos') %>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
+    <th>Sku</th>
+    <th>Descripci&oacute;n</th>
     <th></th>
   </tr>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= link_to 'Mostrar', product %></td>
-    <td><%= link_to 'Editar', edit_product_path(product) %></td>
-    <td><%= link_to 'Destruir', product, method: :delete, data: { confirm: '¿Estas seguro de borrar el producto?' } %></td>
-  </tr>
+<td><% Product.all.each do |product| %></td>
+  
+  	<td><% if(product.user_id == current_user.user_id) %></td>
+  	<tr>
+  		<td><%= product.sku%></td>
+	  	<td><%= product.descripcion%></td>
+	    <td><%= link_to 'Ver', product %>&nbsp;|&nbsp;</td>
+	    <td><%= link_to 'Editar', edit_product_path(product) %></td>
+	</tr>
+	<% end %>
+  
 <% end %>
 </table>
 

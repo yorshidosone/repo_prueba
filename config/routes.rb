@@ -1,13 +1,16 @@
 Facturas::Application.routes.draw do
+  
   get "facturacion/facturar"
 
-  resources :facturas
+  resources :facturas do
+    resources :facturasproductos
+  end
   resources :products
   resources :clients
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   
-  match "/download_pdf(.:format)" => "facturacion#facturar", :method => :get, :as=>:pdf_printer
+  match "/printpdf", to: "facturacion#facturar"
   match "/signup", to: "users#new"
   match "/signin", to: "sessions#new"
   match "/signout", to: "sessions#destroy", via: :delete

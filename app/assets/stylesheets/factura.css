@@ -1,0 +1,351 @@
+/*INFORMACION DE LA PARTE SUPERIOR DE LA FACTURA*/
+.logo {
+	float:left;
+}
+.cabecera {
+	position:absolute; margin:0px;
+}
+input { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+/*NÚMERO DE FACTURA, LUGAR Y FECHA Y FORMA DE PAGO */
+.titulo {
+	font-weight:bold;
+	position:absolute; left:45em; top:0.1em;
+}
+.title_num {
+	position:absolute; left:43em; top:1.1em;
+}
+.campo_num {
+	text-align:center;
+	position:absolute; left:47em; top:1em;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+.title_lyf {
+	position:absolute; left:30.5em; top:2.6em; width:100px;
+}
+.campo_lyf {
+	position:absolute; left:37em; top:2.5em;
+}
+.title_f_pago {
+	position:absolute; left:40em; top:4em; width:150px;
+}
+.campo_f_pago {
+	position:absolute; left:47em; top:4.1em;
+}
+/*INFORMACION DEL CLIENTE*/
+.client {
+	position:absolute; top:6em; width: 52em;
+}
+.leyenda {
+	position:absolute; top:-0.5em;
+}
+.nombre_cliente {
+	position:absolute; top:1em;
+}
+.rfc_cliente {
+	position: absolute; top: 1em; left: 40em;
+}
+.dir_cliente {
+	position: absolute; top:2em;
+}
+.ciudad_cliente {
+	position: absolute; top: 3em;
+}
+.estado_cliente {
+	position:absolute; top: 3em; left: 20em;
+}
+.cod_post {
+	position:absolute; top: 3em; left: 40em;
+}
+/*PRODUCTOS*/
+.productos {
+	position:absolute; top:11em;
+}
+
+.col_cant {
+	position:absolute; top:2.5em;
+}
+.col_sku {
+	position:absolute; top:2.5em; left: 6em;
+}
+.col_um {
+	position:absolute; top:1em; left: 11em; text-align: center;
+}
+.col_desc {
+	position:absolute; top:2.5em; left: 18em;
+}
+.col_pre {
+	position:absolute; top:2.5em; left: 37em;
+}
+.col_imp {
+	position:absolute; top:2.5em; left: 45em;
+}
+#cantidad_1 {
+	position:absolute; top:5em;
+}
+#sku_1 {
+	position:absolute; top:5em; left:6em;
+}
+#um_1 {
+	position:absolute; top:5em; left: 11em;
+}
+#desc_1 {
+	position:absolute; top:5em; left: 18em; width: 150px;
+}
+#precio_1 {
+	position:absolute; top:5em; left: 37em;
+}
+#importe_1 {
+	position:absolute; top:5em; left: 45em;
+}
+#cantidad_2 {
+	position:absolute; top:6.5em;
+}
+#sku_2 {
+	position:absolute; top:6.5em; left:6em;
+}
+#um_2 {
+	position:absolute; top:6.5em; left: 11em;
+}
+#desc_2 {
+	position:absolute; top:6.5em; left: 18em; width: 150px;
+}
+#precio_2 {
+	position:absolute; top:6.5em; left: 37em;
+}
+#importe_2 {
+	position:absolute; top:6.5em; left: 45em;
+}
+#cantidad_3 {
+	position:absolute; top:8em;
+}
+#sku_3 {
+	position:absolute; top:8em; left:6em;
+}
+#um_3 {
+	position:absolute; top:8em; left: 11em;
+}
+#desc_3 {
+	position:absolute; top:8em; left: 18em; width: 150px;
+}
+#precio_3 {
+	position:absolute; top:8em; left: 37em;
+}
+#importe_3 {
+	position:absolute; top:8em; left: 45em;
+}
+#cantidad_4 {
+	position:absolute; top:9.5em;
+}
+#sku_4 {
+	position:absolute; top:9.5em; left:6em;
+}
+#um_4 {
+	position:absolute; top:9.5em; left: 11em;
+}
+#desc_4 {
+	position:absolute; top:9.5em; left: 18em; width: 150px;
+}
+#precio_4 {
+	position:absolute; top:9.5em; left: 37em;
+}
+#importe_4 {
+	position:absolute; top:9.5em; left: 45em;
+}
+#cantidad_5 {
+	position:absolute; top:11em;
+}
+#sku_5 {
+	position:absolute; top:11em; left:6em;
+}
+#um_5 {
+	position:absolute; top:11em; left: 11em;
+}
+#desc_5 {
+	position:absolute; top:11em; left: 18em; width: 150px;
+}
+#precio_5 {
+	position:absolute; top:11em; left: 37em;
+}
+#importe_5 {
+	position:absolute; top:11em; left: 45em;
+}
+#cantidad_6 {
+	position:absolute; top:12.5em;
+}
+#sku_6 {
+	position:absolute; top:12.5em; left:6em;
+}
+#um_6 {
+	position:absolute; top:12.5em; left: 11em;
+}
+#desc_6 {
+	position:absolute; top:12.5em; left: 18em; width: 150px;
+}
+#precio_6 {
+	position:absolute; top:12.5em; left: 37em;
+}
+#importe_6 {
+	position:absolute; top:12.5em; left: 45em;
+}
+#cantidad_7 {
+	position:absolute; top:14em;
+}
+#sku_7 {
+	position:absolute; top:14em; left:6em;
+}
+#um_7 {
+	position:absolute; top:14em; left: 11em;
+}
+#desc_7 {
+	position:absolute; top:14em; left: 18em; width: 150px;
+}
+#precio_7 {
+	position:absolute; top:14em; left: 37em;
+}
+#importe_7 {
+	position:absolute; top:14em; left: 45em;
+}
+#cantidad_8 {
+	position:absolute; top:15.5em;
+}
+#sku_8 {
+	position:absolute; top:15.5em; left:6em;
+}
+#um_8 {
+	position:absolute; top:15.5em; left: 11em;
+}
+#desc_8 {
+	position:absolute; top:15.5em; left: 18em; width: 150px;
+}
+#precio_8 {
+	position:absolute; top:15.5em; left: 37em;
+}
+#importe_8 {
+	position:absolute; top:15.5em; left: 45em;
+}
+#cantidad_9 {
+	position:absolute; top:17em;
+}
+#sku_9 {
+	position:absolute; top:17em; left:6em;
+}
+#um_9 {
+	position:absolute; top:17em; left: 11em;
+}
+#desc_9 {
+	position:absolute; top:17em; left: 18em; width: 150px;
+}
+#precio_9 {
+	position:absolute; top:17em; left: 37em;
+}
+#importe_9 {
+	position:absolute; top:17em; left: 45em;
+}
+#cantidad_10 {
+	position:absolute; top:18.5em;
+}
+#sku_10 {
+	position:absolute; top:18.5em; left:6em;
+}
+#um_10 {
+	position:absolute; top:18.5em; left: 11em;
+}
+#desc_10 {
+	position:absolute; top:18.5em; left: 18em; width: 150px;
+}
+#precio_10 {
+	position:absolute; top:18.5em; left: 37em;
+}
+#importe_10 {
+	position:absolute; top:18.5em; left: 45em;
+}
+#cantidad_11 {
+	position:absolute; top:20em;
+}
+#sku_11 {
+	position:absolute; top:20em; left:6em;
+}
+#um_11 {
+	position:absolute; top:20em; left: 11em;
+}
+#desc_11 {
+	position:absolute; top:20em; left: 18em; width: 150px;
+}
+#precio_11 {
+	position:absolute; top:20em; left: 37em;
+}
+#importe_11 {
+	position:absolute; top:20em; left: 45em;
+}
+#cantidad_12 {
+	position:absolute; top:21.5em;
+}
+#sku_12 {
+	position:absolute; top:21.5em; left:6em;
+}
+#um_12 {
+	position:absolute; top:21.5em; left: 11em;
+}
+#desc_12 {
+	position:absolute; top:21.5em; left: 18em; width: 150px;
+}
+#precio_12 {
+	position:absolute; top:21.5em; left: 37em;
+}
+#importe_12 {
+	position:absolute; top:21.5em; left: 45em;
+}
+#cantidad_13 {
+	position:absolute; top:23em;
+}
+#sku_13 {
+	position:absolute; top:23em; left:6em;
+}
+#um_13 {
+	position:absolute; top:23em; left: 11em;
+}
+#desc_13 {
+	position:absolute; top:23em; left: 18em; width: 150px;
+}
+#precio_13 {
+	position:absolute; top:23em; left: 37em;
+}
+#importe_13 {
+	position:absolute; top:23em; left: 45em;
+}
+/*CODIGO BIDIMENSIONAL*/
+.bdd {
+	position:absolute; left:0px; top: 62em;
+}
+.observ {
+	position:absolute; left:100px; top: 61em;
+}
+.observ input {
+	font-size: 1.5ex; height: 50px; width: 427px;
+}
+/*CANTIDADES PARA EL PAGO*/
+.titulo1 {
+	position:absolute; left: 41em; top: 62em;
+}
+.input1 {
+	position:absolute; left: 45em; top: 61.8em;
+}
+.titulo2 {
+	position:absolute; left: 40em; top: 63.5em;
+}
+.input2 {
+	position:absolute; left: 45em; top: 63.3em;
+}
+.titulo3 {
+	position:absolute; left: 42.5em; top: 65em;
+}
+.input3 {
+	position:absolute; left: 45em; top: 64.8em;
+}
+.titulo4 {
+	position:absolute; left: 42.5em; top: 66.5em;
+}
+.input4 {
+	position:absolute; left: 45em; top: 66.3em;
+}

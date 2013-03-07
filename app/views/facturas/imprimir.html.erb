@@ -1,0 +1,85 @@
+<%= wicked_pdf_stylesheet_link_tag 'factura' %>
+<div class="row">
+  <div class="span6 offset3">
+  	<% cliente= Client.find_by_client_id(current_factura.client_id) %>
+  	<div class="cabecera">
+	  	<div class="logo"><%= wicked_pdf_image_tag('clientes.png')%></div>
+	  	<div class="datos_factura">
+	  		<div class="titulo">FACTURA</div>
+		  	<div class="title_num">N&uacute;mero:</div>
+			<div class="campo_num">
+					<input style="font-weight:bold; text-align: center" type="text" size= "8" name="folio" value="<%= @factura.folio %>" readonly="true">
+			</div>
+	  		<div class="title_lyf">Lugar y fecha:</div>
+	  		<div class="campo_lyf">
+		  		<input type="text" size= "26" name="lyf" value="<%= cliente.estado %>, <%= cliente.municipio %>, <%= @factura.fecha %>" readonly="true">
+	  		</div>
+		  	<div class="title_f_pago">Forma de pago:</div>
+	  		<div class="campo_f_pago">
+		  		<input type="text" size= "8" name="fdp" value="<%= @factura.m_pago %>" readonly="true">
+	  		</div>
+	  	</div>
+	</div>
+  </div>
+  	<div class="client">
+	  		<div class="leyenda">Detalles del cliente</div>
+				<div class="nombre_cliente">NOMBRE: <%= cliente.nombre %></div>
+				<div class="rfc_cliente"> RFC: <%= cliente.RFC %></div>
+				<div class="dir_cliente">DIRECCI&Oacute;N: <%= cliente.direccion %></div>
+				<div class="ciudad_cliente">CIUDAD: <%= cliente.municipio %></div>
+				<div class="estado_cliente">ESTADO: <%= cliente.estado %></div>
+				<div class="cod_post"> C.P. <%= cliente.CP %></div>
+  	</div>
+  	<div class="productos">
+  			<div class="table">
+  				<div class="columnas">
+  					<div class="col_cant">CANT</div><div class="col_sku">SKU</div><div class="col_um">UNIDAD DE MEDIDA</div>
+  					<div class="col_desc">DESCRIPCI&Oacute;N</div><div class="col_pre">PRECIO</div><div class="col_imp">IMPORTE</div>
+  				</div>
+  				<% st = 0 %>
+  				<% contador = 1 %>
+  				<% FacturasProducto.all.each do |fp| %>
+  					<% if(fp.factura_id == @factura.factura_id) %>
+  					<div class="campos">
+  						<div id="cantidad_<%= contador %>" class="camp_cant"><%= fp.cant %></div>
+  						<div id="sku_<%=contador %>" class="camp_sku"><%= Product.find_by_product_id(fp.product_id).sku%></div>
+  						<div id="um_<%= contador %>"class="camp_um"><%= Product.find_by_product_id(fp.product_id).u_medida %></div>
+  						<div id="desc_<%= contador %>"class="camp_desc"><%= Product.find_by_product_id(fp.product_id).descripcion%></div>
+  						<div id="precio_<%= contador %>"class="camp_prec"><%= Product.find_by_product_id(fp.product_id).p_unit %></div>
+  						<div id="importe_<%= contador %>"class="camp_imp"><%= imp= importe(fp.cant, Product.find_by_product_id(fp.product_id).p_unit) %></div>
+  					</div>
+  						  <% st = calcular_subtotal(st, imp) %>
+  						  <% contador = contador + 1 %>
+  					<% end %>
+  				<% end %>
+  				<% iva = calcular_iva(st) %>
+  				<% cantidad = total(st, 0) %>
+  			</div>
+  		</div>
+  		<div class="bdd"<%= wicked_pdf_image_tag('clientes.png')%></div>
+		<div class="observ">
+			<b>Observaciones</b><br>
+			<input type="text"/><br>
+			<b>Importe con letra</b><br>
+			<input type="text" value="<%= cantidad_en_letras(cantidad) %>"/>
+		</div>
+		<div class="numeros"><br />
+			<div class="subtotal">
+				<div class="titulo1">Subtotal</div>
+				<div class="input1"><input type="text" size= "10" name="subt" value="<%= st %>"></div>
+			</div>
+			<div class="descuento">
+				<div class="titulo2">Descuento</div>
+				<div class="input2"><input type="text" size= "10" name="desc"</div>
+			</div>
+			<div class="iva">
+				<div class="titulo3">I.V.A.</div>
+				<div class="input3"><input type="text" size= "10" name="n_iva" value="<%= iva %>" readonly="true"></div>
+			</div>			
+			<div class="total">
+				<div class="titulo4">Total</div>
+				<div class="input4"><input type="text" size= "10" name="tot" value="<%= cantidad %>" readonly="true"></div>
+			</div>
+		</div>  
+  </div>
+</div>

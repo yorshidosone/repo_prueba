@@ -1,6 +1,13 @@
-<h1>Editing client</h1>
+<h1>Actualizando cliente</h1>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="span6 offset3">
+  	<table>
+    <%= form_for(@client) do |f| %>
 
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+      <%= render 'form', f: f %>
+      <td><%= f.submit "Guardar cambios", class: "btn btn-large btn-primary" %> &oacute; <%= link_to "Regresar", clients_path%></td>
+    <% end %>
+    </table>
+  </div>
+</div>

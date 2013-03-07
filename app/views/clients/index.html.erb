@@ -1,20 +1,22 @@
-<h1>Listando clientes</h1>
+<% provide(:title, 'Listando clientes') %>
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Nombre</th>
-    <th></th>
-    <th></th>
+    
   </tr>
-
 <td><% Client.all.each do |client| %></td>
-  <tr>
-  	<td><%= client.nombre %></td>
-  	<td><%= User.find_by_user_id(client.user_id).empresa %></td>
-    <td><%= link_to 'Mostrar', client %></td>
-    <td><%= link_to 'Editar', edit_client_path(client) %></td>
-    <td><%= link_to 'Destruir', client, method: :delete, data: { confirm: '¿Estas seguro de borrar a éste cliente?' } %></td>
-  </tr>
+  
+  	<td><% if(client.user_id == current_user.user_id) %></td>
+  	<tr>
+  		<td><%= client.client_id%></td>
+	  	<td><%= client.nombre %></td>
+	    <td><%= link_to 'Ver', client %>&nbsp;|&nbsp;</td>
+	    <td><%= link_to 'Editar', edit_client_path(client) %></td>
+	</tr>
+	<% end %>
+  
 <% end %>
 </table>
 

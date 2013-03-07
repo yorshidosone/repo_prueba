@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128225347) do
+ActiveRecord::Schema.define(:version => 20130205182706) do
 
   create_table "clients", :primary_key => "client_id", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20130128225347) do
   add_index "clients", ["user_id"], :name => "user_id_idx"
 
   create_table "facturas", :primary_key => "factura_id", :force => true do |t|
-    t.integer "user_id",                                  :null => false
     t.integer "client_id",                                :null => false
     t.integer "folio",                                    :null => false
     t.date    "fecha",                                    :null => false
@@ -37,16 +36,11 @@ ActiveRecord::Schema.define(:version => 20130128225347) do
 
   add_index "facturas", ["client_id"], :name => "fk_facturas_client_idx"
   add_index "facturas", ["folio"], :name => "folio_UNIQUE", :unique => true
-  add_index "facturas", ["user_id"], :name => "fk_facturas_user_idx"
 
-  create_table "facturas_productos", :primary_key => "facturas_productos_id", :force => true do |t|
-    t.integer  "factura_id", :null => false
-    t.integer  "product_id", :null => false
-    t.datetime "created_at", :null => false
+  create_table "facturas_productos", :force => true do |t|
+    t.integer "factura_id"
+    t.integer "product_id"
   end
-
-  add_index "facturas_productos", ["factura_id"], :name => "fk_facturas_productos_factura_idx"
-  add_index "facturas_productos", ["product_id"], :name => "fk_facturas_productos_product_idx"
 
   create_table "products", :primary_key => "product_id", :force => true do |t|
     t.integer  "fk_user_id",                                               :null => false
@@ -68,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20130128225347) do
     t.string  "ciudad",          :limit => 20, :null => false
     t.integer "cp",                            :null => false
     t.string  "tel",             :limit => 21, :null => false
-    t.string  "logo_url"
+    t.string  "logo"
     t.string  "bdd"
     t.string  "password_digest"
     t.string  "remember_token"

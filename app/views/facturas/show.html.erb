@@ -1,11 +1,57 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= Factura.find_by_factura_id(14).folio %>
-  <% @user = User.find_by_user_id(46) %>
-  <%= image_tag ("#{@user.empresa.underscore}/logo.jpg") %>
-  
-</p>
+<% provide(:title, 'Mostrando factura') %>
+<% establece_factura(@factura)%>
 
-<%= link_to 'Back', facturas_path %>
+<div class="row">
+  <div class="span6 offset3">
+  		<fieldset>
+	  		<legend>Detalles del cliente</legend>
+	  		
+				<% cliente= Client.find_by_client_id(current_factura.client_id) %>
+				ID: <%= cliente.client_id %>   RFC: <%= cliente.RFC %><br />
+				NOMBRE: <%= cliente.nombre %><br />
+				DIRECCI&Oacute;N: <%= cliente.direccion %><br />
+				ESTADO: <%= cliente.estado %>   CIUDAD: <%= cliente.municipio %>    C.P. <%= cliente.CP %>
+  		</fieldset>
+  		<fieldset>
+  			M&eacute;todo de pago: <%= @factura.m_pago %>
+  		</fieldset>
+  		<fieldset>
+  			<table>
+  				<td>CANT</td><td>SKU</td><td>UNIDAD DE MEDIDA</td><td>DESCRIPCI&Oacute;N</td><td>PRECIO</td><td>IMPORTE</td><tr />
+  				<% st, iva = 0 %>
+  				<% FacturasProducto.all.each do |fp| %>
+  					<% if(fp.factura_id == @factura.factura_id) %>
+  						
+  						<td><%= fp.cant %></td><td><%= Product.find_by_product_id(fp.product_id).sku%></td><td><%= Product.find_by_product_id(fp.product_id).u_medida %></td><td><%= Product.find_by_product_id(fp.product_id).descripcion%></td><td><%= Product.find_by_product_id(fp.product_id).p_unit %></td><td><%= imp= importe(fp.cant, Product.find_by_product_id(fp.product_id).p_unit) %></td></tr>
+  						  <% st = calcular_subtotal(st, imp) %>
+  					<% end %>
+  				<% end %>
+  				<% iva = calcular_iva(st) %>
+  				<% cantidad = total(st, 0) %>
+  				
+ </td>
+
+  			</table>
+  		</fieldset>
+		<div id="observ" style="height:200px;width:300px;float:left;">
+			<b>Observaciones</b><br>
+			<input type="text" style="height: 50px;width: 290px"/>
+			<b>Importe con letra:</b>
+			<input type="text" style="height: 50px;width: 290px" value="<%= cantidad_en_letras(cantidad) %>" readonly="true"/>
+		</div>
+		
+		<div id="numeros" style="height:200px;width:400px;float:left;"><br />
+			<b>Subtotal</b><input type="text" size= "5" name="subt" value="<%= st %>" readonly="true"><br>
+			<b>Descuento</b><input type="text" size= "5" name="descu" id="desc" readonly="true"><br>
+			<b>I.V.A.</b><input type="text" size= "5" name="iva" value="<%= iva %>" readonly="true"><br>
+			<b>Total</b><input type="text" size= "5" name="total" value="<%= cantidad %>" readonly="true"><br>
+		</div>
+		<div id="PDFPrinter" style="clear:both;text-align:left;">
+			
+			<%= link_to 'Imprimir en pdf', printpdf_path %> &oacute; <%= link_to "Regresar", facturas_path %>
+		</div>
+<div>
+</div>    
+  </div>
+</div>

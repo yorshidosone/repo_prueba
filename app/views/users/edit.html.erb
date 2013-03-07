@@ -1,6 +1,13 @@
 <h1>Actualizando usuario</h1>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="span6 offset3">
+  	<table>
+    <%= form_for(@user) do |f| %>
 
-<%= link_to 'Mostrar', @user %> |
-<%= link_to 'Regresar', users_path %>
+      <%= render 'form', f: f %>
+      <td><%= f.submit "Guardar cambios", class: "btn btn-large btn-primary" %></td>
+    <% end %>
+    </table>
+  </div>
+</div>

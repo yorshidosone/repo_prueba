@@ -1,0 +1,143 @@
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script>
+$(document).ready(function(){
+$( "body" ).on('keyup.autocomplete', '.descripcion', function() {
+	$( this ).autocomplete({
+		// minLength: 3,
+		source: '<%= products_path(:json) %>',
+		focus: function(event, ui) {
+			
+			$(this).val(ui.item.descripcion);
+			return false;
+		},
+	    select: function( event, ui ) {
+	    	
+	    	$(this).val(ui.item.descripcion);
+	        var index = this.id.substring(5);
+	        $("#pr_id_"+index).val(ui.item.product_id);
+	        $("#pr_unit_"+index).val(ui.item.p_unit);
+	        $("#u_med_"+index).val(ui.item.u_medida);
+	        $("#cant_"+index).val(0);
+	        updatesum(document.getElementById("cant_"+index));
+	        return false;
+	    }  
+		}).data("uiAutocomplete")._renderItem = function(ul, item) {
+				return $("<li></li>").data("item.autocomplete", item).append(
+	      '<a>' + item.descripcion + '</a>').appendTo(ul);
+	    };
+  })
+});
+</script>
+<script type="text/javascript">
+
+function updatesum(c) {
+	id = c.id.substring(5);
+	cantidad = document.getElementById("cant_"+id).value;
+	price_input = document.getElementById("pr_unit_"+id);
+	price = parseFloat(price_input.value);
+	var m = (cantidad * price);
+	document.getElementById("imp_"+id).value = m;
+	CalculateTotal(c.form);
+}
+function CalculateTotal(frm) {
+	
+    var order_total = 0
+    var iva = 0
+    var total = 0
+    // Run through all the form fields
+    for (var i=0; i < frm.elements.length; ++i) {
+    	
+        // Get the current field
+        form_field = frm.elements[i]
+        
+        // Get the field's id
+        form_name = form_field.id
+        // Is it a "import" field?
+        
+        if (form_name.substring(0,4) == "imp_") {
+            // Get the quantity
+            importe_subt = parseInt(form_field.value)
+            
+            // Update the order total
+            if (importe_subt >= 0) {
+                order_total += importe_subt
+                iva = (order_total * 0.16)
+                total = iva + order_total
+            }
+        }
+    }
+    // Display the total rounded to two decimal places
+    document.getElementById("valor_subtotal").value = "$" + round_decimals(order_total, 2)
+    document.getElementById("valor_iva").value = "$" + round_decimals(iva, 2)
+    document.getElementById("valor_total").value = "$" + round_decimals(total, 2)
+}
+
+function round_decimals(original_number, decimals) {
+    var result1 = original_number * Math.pow(10, decimals)
+    var result2 = Math.round(result1)
+    var result3 = result2 / Math.pow(10, decimals)
+    return pad_with_zeros(result3, decimals)
+}
+
+function pad_with_zeros(rounded_value, decimal_places) {
+    // Convert the number to a string
+    var value_string = rounded_value.toString()
+    // Locate the decimal point
+    var decimal_location = value_string.indexOf(".")
+    // Is there a decimal point?
+    if (decimal_location == -1) {
+        // If no, then all decimal places will be padded with 0s
+        decimal_part_length = 0
+        // If decimal_places is greater than zero, tack on a decimal point
+        value_string += decimal_places > 0 ? "." : ""
+    }
+    else {
+        // If yes, then only the extra decimal places will be padded with 0s
+        decimal_part_length = value_string.length - decimal_location - 1
+    }
+    // Calculate the number of decimal places that need to be padded with 0s
+    var pad_total = decimal_places - decimal_part_length
+    if (pad_total > 0) {
+        // Pad the string with 0s
+        for (var counter = 1; counter <= pad_total; counter++) 
+            value_string += "0"
+        }
+    return value_string
+}
+
+function change_products_fields_ids(camp){
+	identificador = camp.id;
+	if (identificador == 'desc_1' || identificador == 'desc_2'  || identificador == 'desc_3'  || identificador == 'desc_4'  ||
+		identificador == 'desc_5' || identificador == 'desc_6'  || identificador == 'desc_7'  || identificador == 'desc_8'  ||
+		identificador == 'desc_9' || identificador == 'desc_10' || identificador == 'desc_11' || identificador == 'desc_12' ||
+		identificador == 'desc_13'){ 
+	}
+	else {
+		for (var i=1; i<14; i++){
+			if (!document.getElementById("desc_"+i)){
+				camp.id="desc_"+i;
+				unidad_medida = document.getElementById("u_med");
+				precio_unitario = document.getElementById("pr_unit");
+				pr_id = document.getElementById("factura_facturas_productos_attributes_"+(i-1)+"_product_id");
+				im = document.getElementById("factura_facturas_productos_attributes_"+(i-1)+"_importe");
+				cantidad = document.getElementById("factura_facturas_productos_attributes_"+(i-1)+"_cant");
+				unidad_medida.id = 'u_med_'+i;
+				precio_unitario.id = 'pr_unit_'+i;
+				pr_id.id = 'pr_id_'+i;
+				im.id = 'imp_'+i;
+				cantidad.id = "cant_"+i;
+				document.getElementById("cant_"+i).readOnly = false;
+				break;
+			}
+		}
+	}
+}
+</script>
+<div><%= f.text_field :product_id, :size => 5, :readonly => true %></div>
+<div><%= f.text_field :cant, :size => 5, :onchange => 'updatesum(this)', :readonly => true %></div>
+<div><input id="u_med" type="text" size="5" readonly="true" ></div>
+<div><input id="desc" class="descripcion" type="text" size="5" onfocus="change_products_fields_ids(this)" ></div>
+<div><input id="pr_unit" type="text" size="5" readonly="true"></div>
+<div><%= f.text_field :importe, :size => 5, :readonly => true %></div>
+</br>

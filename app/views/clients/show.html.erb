@@ -1,5 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Nombre</b>
+  <%= @client.nombre %>
+</p>
 
+<p>
+  <b>RFC</b>
+  <%= @client.RFC %>
+</p>
 
-<%= link_to 'Back', clients_path %>
+<p>
+  <b>Estado</b>
+  <%= @client.estado %>
+</p>
+
+<p>
+  <b>Municipio</b>
+  <%= @client.municipio %>
+</p>
+
+<%= link_to 'Regresar', clients_path %>

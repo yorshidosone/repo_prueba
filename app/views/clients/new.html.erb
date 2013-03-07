@@ -1,5 +1,12 @@
-<h1>Cliente nuevo</h1>
+<% provide(:title, "Nuevo cliente")%>
+<div class="row">
+  <div class="span6 offset3">
+  	<table>
+    <%= form_for(@client) do |f| %>
 
-<%= render 'form' %>
-
-<%= link_to 'Regresar', clients_path %>
+      <%= render 'form', f: f %>
+      <td><%= f.submit "Crear cliente", class: "btn btn-large btn-primary" %> &oacute; <%= link_to "Regresar", clients_path%></td>
+    <% end %>
+    </table>
+  </div>
+</div>

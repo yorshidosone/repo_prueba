@@ -1,23 +1,13 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<% provide(:title, 'Nuevo producto/servicio') %>
+<%= render 'shared/error_messages', object: f.object %>
+<fieldset>
   <div class="field">
     <%= f.label :sku %>
     <%= f.text_field :sku %>
   </div>
   <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_area :descripcion, :rows => 6 %>
+    <%= f.label :descripcion, "Descripcion" %>
+    <%= f.text_field :descripcion %>
   </div>
   <div class="field">
     <%= f.label :p_unit, 'Precio unitario' %>
@@ -30,6 +20,6 @@
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear" %> &oacute; <%= link_to "Cancelar", products_path %>
   </div>
-<% end %>
+</fieldset>

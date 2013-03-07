@@ -1,7 +1,11 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <p id="notice"><%= notice %></p>
 
-<table>
+EMPRESA: <%= @user.empresa %>
+
+<%= image_tag("#{current_user.empresa.downcase}/logo.jpg")%>
+
+<!-- <table>
 <td><% Client.all.each do |client| %></td>
   
   	<td><% if(client.user_id == @user.user_id) %></td>
@@ -14,5 +18,6 @@
 	<% end %>
   
 <% end %>
-</table>
+</table> -->
 <%= link_to 'Regresar', users_path %>
+<%= link_to 'Editar', edit_user_path(@user) %>

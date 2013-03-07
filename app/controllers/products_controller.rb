@@ -1,12 +1,19 @@
+#encoding: utf-8
 class ProductsController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-
+    if params[:term]
+      @products = Product.find(:all, :conditions => ['user_id = ' + "#{current_user.user_id}" +
+                  ' and descripcion LIKE ?', "#{params[:term]}%"])
+    else
+      @products = Product.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @products }
+      format.json { render json: @products.to_json }
     end
   end
 
@@ -44,7 +51,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'Producto creado satisfactoriamente.' }
         format.json { render json: @product, status: :created, location: @product }
       else
         format.html { render action: "new" }
@@ -60,7 +67,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: 'Producto actualizado correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +87,11 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Página protegida, por favor inicie sesión."
+      end
+    end 
 end
