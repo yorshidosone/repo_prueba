@@ -23,7 +23,13 @@
   				<% FacturasProducto.all.each do |fp| %>
   					<% if(fp.factura_id == @factura.factura_id) %>
   						
-  						<td><%= fp.cant %></td><td><%= Product.find_by_product_id(fp.product_id).sku%></td><td><%= Product.find_by_product_id(fp.product_id).u_medida %></td><td><%= Product.find_by_product_id(fp.product_id).descripcion%></td><td><%= Product.find_by_product_id(fp.product_id).p_unit %></td><td><%= imp= importe(fp.cant, Product.find_by_product_id(fp.product_id).p_unit) %></td></tr>
+  						<td><%= fp.cant %></td>
+  						<td><%= Product.find_by_product_id(fp.product_id).sku%></td>
+  						<td><%= Product.find_by_product_id(fp.product_id).u_medida %></td>
+  						<td><%= Product.find_by_product_id(fp.product_id).descripcion%></td>
+  						<td><%= number_to_currency(Product.find_by_product_id(fp.product_id).p_unit) %></td>
+  						<% imp= importe(fp.cant, Product.find_by_product_id(fp.product_id).p_unit) %>
+  						<td><%= number_to_currency(imp) %></td></tr>
   						  <% st = calcular_subtotal(st, imp) %>
   					<% end %>
   				<% end %>
@@ -42,10 +48,10 @@
 		</div>
 		
 		<div id="numeros" style="height:200px;width:400px;float:left;"><br />
-			<b>Subtotal</b><input type="text" size= "5" name="subt" value="<%= st %>" readonly="true"><br>
+			<b>Subtotal</b><input type="text" size= "5" name="subt" value="<%= number_to_currency(st) %>" readonly="true"><br>
 			<b>Descuento</b><input type="text" size= "5" name="descu" id="desc" readonly="true"><br>
-			<b>I.V.A.</b><input type="text" size= "5" name="iva" value="<%= iva %>" readonly="true"><br>
-			<b>Total</b><input type="text" size= "5" name="total" value="<%= cantidad %>" readonly="true"><br>
+			<b>I.V.A.</b><input type="text" size= "5" name="iva" value="<%= number_to_currency(iva) %>" readonly="true"><br>
+			<b>Total</b><input type="text" size= "5" name="total" value="<%= number_to_currency(cantidad) %>" readonly="true"><br>
 		</div>
 		<div id="PDFPrinter" style="clear:both;text-align:left;">
 			

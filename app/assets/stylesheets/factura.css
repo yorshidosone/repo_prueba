@@ -5,7 +5,6 @@
 .cabecera {
 	position:absolute; margin:0px;
 }
-input { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
 /*NÚMERO DE FACTURA, LUGAR Y FECHA Y FORMA DE PAGO */
 .titulo {
 	font-weight:bold;
@@ -15,304 +14,425 @@ input { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 	position:absolute; left:43em; top:1.1em;
 }
 .campo_num {
-	text-align:center;
+	text-align: center;
+	font-weight: bold;
+	width: 100px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */
 	position:absolute; left:47em; top:1em;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
 }
 .title_lyf {
 	position:absolute; left:30.5em; top:2.6em; width:100px;
 }
 .campo_lyf {
+	text-align: center;
+	width: 260px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */
 	position:absolute; left:37em; top:2.5em;
 }
 .title_f_pago {
 	position:absolute; left:40em; top:4em; width:150px;
 }
 .campo_f_pago {
+	text-align: center;
+	width: 100px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */	
 	position:absolute; left:47em; top:4.1em;
 }
 /*INFORMACION DEL CLIENTE*/
 .client {
 	position:absolute; top:6em; width: 52em;
 }
+
 .leyenda {
-	position:absolute; top:-0.5em;
+	text-align: center;
+	width: 200px;
+	border:1px solid #554E4E;
+	position:absolute; top:-1.5em;
+	background-color: #C0C0C0;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */
 }
 .nombre_cliente {
-	position:absolute; top:1em;
+	width: 76%; height:1.5em;
+	border:1px dotted #554E4E;
+	-moz-border-top-left-radius:5px;  /* for Firefox */
+	-webkit-border-top-left-radius:5px; /* for Webkit-Browsers */
+	border-top-left-radius:5px; /* regular */	
+	position:absolute; top:0.5em;
 }
 .rfc_cliente {
-	position: absolute; top: 1em; left: 40em;
+	width: 24%; height:1.5em;
+	border:1px dotted #554E4E;
+	-moz-border-top-right-radius:5px;  /* for Firefox */
+	-webkit-border-top-right-radius:5px; /* for Webkit-Browsers */
+	border-top-right-radius:5px; /* regular */	
+	position: absolute; top: 0.5em; left: 39.6em;
 }
 .dir_cliente {
-	position: absolute; top:2em;
+	position: absolute; top:2.1em;
+	width:100%; height:1.5em;
+	border:1px dotted #554E4E;
+	
 }
 .ciudad_cliente {
-	position: absolute; top: 3em;
+	width: 38%; height:1.5em;
+	border:1px dotted #554E4E;
+	-moz-border-bottom-left-radius:5px;  /* for Firefox */
+	-webkit-border-bottom-left-radius:5px; /* for Webkit-Browsers */
+	border-bottom-left-radius:5px; /* regular */
+	position: absolute; top: 3.65em;
 }
 .estado_cliente {
-	position:absolute; top: 3em; left: 20em;
+	width: 38%; height:1.5em;
+	border:1px dotted #554E4E;
+	position:absolute; top: 3.65em; left: 19.8em;
 }
 .cod_post {
-	position:absolute; top: 3em; left: 40em;
+	width: 24%; height:1.5em;
+	border:1px dotted #554E4E;
+	-moz-border-bottom-right-radius:5px;  /* for Firefox */
+	-webkit-border-bottom-right-radius:5px; /* for Webkit-Browsers */
+	border-bottom-right-radius:5px; /* regular */
+	position:absolute; top: 3.65em; left: 39.6em;
 }
 /*PRODUCTOS*/
 .productos {
 	position:absolute; top:11em;
 }
-
-.col_cant {
+/*NOMBRES DE LAS COLUMNAS*/
+.ncol_cant {
+	text-align: center; height: 40px;
+	width: 100px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	-moz-border-top-left-radius:5px;  /* for Firefox */
+	-webkit-border-top-left-radius:5px; /* for Webkit-Browsers */
+	border-top-left-radius:5px; /* regular */	
 	position:absolute; top:2.5em;
 }
+.ncol_sku {
+	text-align: center; height: 40px;
+	width: 85px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	position:absolute; top:2.5em; left: 6.2em;
+}
+.ncol_um {
+	width: 120px; height: 40px;
+	text-align: center;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	position:absolute; top:2.5em; left: 11.6em;
+}
+.ncol_desc {
+	text-align: center; height: 40px;
+	width: 350px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	position:absolute; top:2.5em; left: 18.9em;
+}
+.ncol_pre {
+	text-align: center; height: 40px;
+	width: 100px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;	
+	position:absolute; top:2.5em; left: 40.8em;
+}
+.ncol_imp {
+	text-align: center; height: 40px;
+	width: 85px;
+	border:1px solid #554E4E;
+	background-color: #C0C0C0;
+	-moz-border-top-right-radius:5px;  /* for Firefox */
+	-webkit-border-top-right-radius:5px; /* for Webkit-Browsers */
+	border-top-right-radius:5px; /* regular */		
+	position:absolute; top:2.5em; left: 47em;
+}
+/*COLUMNAS GENERALES DE PRODUCTOS*/
+.col_cant {
+	position:absolute; top:5.1em;
+	text-align: right;
+	width: 98px; height:650px;
+	border:1px solid #554E4E;
+			
+}
 .col_sku {
-	position:absolute; top:2.5em; left: 6em;
+	position:absolute; top:5.1em; left:6.2em;
+	text-align: center;
+	width: 85px; height:650px;
+	border:1px solid #554E4E;
 }
 .col_um {
-	position:absolute; top:1em; left: 11em; text-align: center;
+	position:absolute; top:5.1em; left:11.6em;
+	text-align: center;
+	width: 116px; height:650px;
+	border:1px solid #554E4E;
 }
 .col_desc {
-	position:absolute; top:2.5em; left: 18em;
+	position:absolute; top:5.1em; left:18.9em;
+	text-align: center;
+	width: 349px; height:650px;
+	border:1px solid #554E4E;
 }
-.col_pre {
-	position:absolute; top:2.5em; left: 37em;
+.col_precio {
+	position:absolute; top:5.1em; left:40.8em;
+	text-align: right;
+	width: 99px; height:650px;
+	border:1px solid #554E4E;
 }
-.col_imp {
-	position:absolute; top:2.5em; left: 45em;
+.col_importe {
+	position:absolute; top:5.1em; left:47em;
+	text-align: right;
+	width: 85px; height:650px;
+	border:1px solid #554E4E;
 }
+/*CAMPOS DE LOS PRODUCTOS*/
 #cantidad_1 {
-	position:absolute; top:5em;
+	position:relative;
 }
 #sku_1 {
-	position:absolute; top:5em; left:6em;
+	position:relative;
 }
 #um_1 {
-	position:absolute; top:5em; left: 11em;
+	position:relative;
 }
 #desc_1 {
-	position:absolute; top:5em; left: 18em; width: 150px;
+	position:relative; width: 350px;
 }
 #precio_1 {
-	position:absolute; top:5em; left: 37em;
+	position:relative;
 }
 #importe_1 {
-	position:absolute; top:5em; left: 45em;
+	position:relative;
 }
 #cantidad_2 {
-	position:absolute; top:6.5em;
+	position:relative; top:1.5em;
 }
 #sku_2 {
-	position:absolute; top:6.5em; left:6em;
+	position:relative; top:1.5em;
 }
 #um_2 {
-	position:absolute; top:6.5em; left: 11em;
+	position:relative; top:1.5em;
 }
 #desc_2 {
-	position:absolute; top:6.5em; left: 18em; width: 150px;
+	position:relative; top:1.5em; width: 350px;
 }
 #precio_2 {
-	position:absolute; top:6.5em; left: 37em;
+	position:relative; top:1.5em;
 }
 #importe_2 {
-	position:absolute; top:6.5em; left: 45em;
+	position:relative; top:1.5em;
 }
 #cantidad_3 {
-	position:absolute; top:8em;
+	position:relative; top:3em;
 }
 #sku_3 {
-	position:absolute; top:8em; left:6em;
+	position:relative; top:3em;
 }
 #um_3 {
-	position:absolute; top:8em; left: 11em;
+	position:relative; top:3em;
 }
 #desc_3 {
-	position:absolute; top:8em; left: 18em; width: 150px;
+	position:relative; top:3em; width: 350px;
 }
 #precio_3 {
-	position:absolute; top:8em; left: 37em;
+	position:relative; top:3em;
 }
 #importe_3 {
-	position:absolute; top:8em; left: 45em;
+	position:relative; top:3em;
 }
 #cantidad_4 {
-	position:absolute; top:9.5em;
+	position:relative; top:4.5em;
 }
 #sku_4 {
-	position:absolute; top:9.5em; left:6em;
+	position:relative; top:4.5em;
 }
 #um_4 {
-	position:absolute; top:9.5em; left: 11em;
+	position:relative; top:4.5em;
 }
 #desc_4 {
-	position:absolute; top:9.5em; left: 18em; width: 150px;
+	position:relative; top:4.5em; width: 350px;
 }
 #precio_4 {
-	position:absolute; top:9.5em; left: 37em;
+	position:relative; top:4.5em;
 }
 #importe_4 {
-	position:absolute; top:9.5em; left: 45em;
+	position:relative; top:4.5em;
 }
 #cantidad_5 {
-	position:absolute; top:11em;
+	position:relative; top:5em;
 }
 #sku_5 {
-	position:absolute; top:11em; left:6em;
+	position:relative; top:5em;
 }
 #um_5 {
-	position:absolute; top:11em; left: 11em;
+	position:relative; top:5em;
 }
 #desc_5 {
-	position:absolute; top:11em; left: 18em; width: 150px;
+	position:relative; top:5em; width: 350px;
 }
 #precio_5 {
-	position:absolute; top:11em; left: 37em;
+	position:relative; top:5em;
 }
 #importe_5 {
-	position:absolute; top:11em; left: 45em;
+	position:relative; top:5em;
 }
 #cantidad_6 {
-	position:absolute; top:12.5em;
+	position:relative; top:6.5em;
 }
 #sku_6 {
-	position:absolute; top:12.5em; left:6em;
+	position:relative; top:6.5em;
 }
 #um_6 {
-	position:absolute; top:12.5em; left: 11em;
+	position:relative; top:6.5em;
 }
 #desc_6 {
-	position:absolute; top:12.5em; left: 18em; width: 150px;
+	position:relative; top:6.5em; width: 350px;
 }
 #precio_6 {
-	position:absolute; top:12.5em; left: 37em;
+	position:relative; top:6.5em;
 }
 #importe_6 {
-	position:absolute; top:12.5em; left: 45em;
+	position:relative; top:6.5em;
 }
 #cantidad_7 {
-	position:absolute; top:14em;
+	position:relative; top:7em;
 }
 #sku_7 {
-	position:absolute; top:14em; left:6em;
+	position:relative; top:7em;
 }
 #um_7 {
-	position:absolute; top:14em; left: 11em;
+	position:relative; top:7em;
 }
 #desc_7 {
-	position:absolute; top:14em; left: 18em; width: 150px;
+	position:relative; top:7em; width: 350px;
 }
 #precio_7 {
-	position:absolute; top:14em; left: 37em;
+	position:relative; top:7em;
 }
 #importe_7 {
-	position:absolute; top:14em; left: 45em;
+	position:relative; top:7em;
 }
 #cantidad_8 {
-	position:absolute; top:15.5em;
+	position:relative; top:8.5em;
 }
 #sku_8 {
-	position:absolute; top:15.5em; left:6em;
+	position:relative; top:8.5em;
 }
 #um_8 {
-	position:absolute; top:15.5em; left: 11em;
+	position:relative; top:8.5em;
 }
 #desc_8 {
-	position:absolute; top:15.5em; left: 18em; width: 150px;
+	position:relative; top:8.5em; width: 350px;
 }
 #precio_8 {
-	position:absolute; top:15.5em; left: 37em;
+	position:relative; top:8.5em;
 }
 #importe_8 {
-	position:absolute; top:15.5em; left: 45em;
+	position:relative; top:8.5em;
 }
 #cantidad_9 {
-	position:absolute; top:17em;
+	position:relative; top:9em;
 }
 #sku_9 {
-	position:absolute; top:17em; left:6em;
+	position:relative; top:9em;
 }
 #um_9 {
-	position:absolute; top:17em; left: 11em;
+	position:relative; top:9em;
 }
 #desc_9 {
-	position:absolute; top:17em; left: 18em; width: 150px;
+	position:relative; top:9em; width: 350px;
 }
 #precio_9 {
-	position:absolute; top:17em; left: 37em;
+	position:relative; top:9em;
 }
 #importe_9 {
-	position:absolute; top:17em; left: 45em;
+	position:relative; top:9em;
 }
 #cantidad_10 {
-	position:absolute; top:18.5em;
+	position:relative; top:10.5em;
 }
 #sku_10 {
-	position:absolute; top:18.5em; left:6em;
+	position:relative; top:10.5em;
 }
 #um_10 {
-	position:absolute; top:18.5em; left: 11em;
+	position:relative; top:10.5em;
 }
 #desc_10 {
-	position:absolute; top:18.5em; left: 18em; width: 150px;
+	position:relative; top:10.5em; width: 350px;
 }
 #precio_10 {
-	position:absolute; top:18.5em; left: 37em;
+	position:relative; top:10.5em;
 }
 #importe_10 {
-	position:absolute; top:18.5em; left: 45em;
+	position:relative; top:10.5em;
 }
 #cantidad_11 {
-	position:absolute; top:20em;
+	position:relative; top:11em;
 }
 #sku_11 {
-	position:absolute; top:20em; left:6em;
+	position:relative; top:11em;
 }
 #um_11 {
-	position:absolute; top:20em; left: 11em;
+	position:relative; top:11em;
 }
 #desc_11 {
-	position:absolute; top:20em; left: 18em; width: 150px;
+	position:relative; top:11em; width: 350px;
 }
 #precio_11 {
-	position:absolute; top:20em; left: 37em;
+	position:relative; top:11em;
 }
 #importe_11 {
-	position:absolute; top:20em; left: 45em;
+	position:relative; top:11em;
 }
 #cantidad_12 {
-	position:absolute; top:21.5em;
+	position:relative; top:12.5em;
 }
 #sku_12 {
-	position:absolute; top:21.5em; left:6em;
+	position:relative; top:12.5em;
 }
 #um_12 {
-	position:absolute; top:21.5em; left: 11em;
+	position:relative; top:12.5em;
 }
 #desc_12 {
-	position:absolute; top:21.5em; left: 18em; width: 150px;
+	position:relative; top:12.5em; width: 350px;
 }
 #precio_12 {
-	position:absolute; top:21.5em; left: 37em;
+	position:relative; top:12.5em;
 }
 #importe_12 {
-	position:absolute; top:21.5em; left: 45em;
+	position:relative; top:12.5em;
 }
 #cantidad_13 {
-	position:absolute; top:23em;
+	position:relative; top:13em;
 }
 #sku_13 {
-	position:absolute; top:23em; left:6em;
+	position:relative; top:13em;
 }
 #um_13 {
-	position:absolute; top:23em; left: 11em;
+	position:relative; top:13em;
 }
 #desc_13 {
-	position:absolute; top:23em; left: 18em; width: 150px;
+	position:relative; top:13em; width: 350px;
 }
 #precio_13 {
-	position:absolute; top:23em; left: 37em;
+	position:relative; top:13em;
 }
 #importe_13 {
-	position:absolute; top:23em; left: 45em;
+	position:relative; top:13em;
 }
 /*CODIGO BIDIMENSIONAL*/
 .bdd {
@@ -324,28 +444,56 @@ input { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 .observ input {
 	font-size: 1.5ex; height: 50px; width: 427px;
 }
+.obs_label {
+	text-align: center;
+	width:427px;
+	background-color: #C0C0C0;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */	
+}
+.num_letra {
+	position:absolute; left:100px; top: 66em;
+}
+.num_letra input {
+	font-size: 1.5ex; height: 50px; width: 427px;
+}
+.num_letra_label {
+	background-color: #C0C0C0;
+	text-align: center;
+	width:427px;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */	
+}
+
 /*CANTIDADES PARA EL PAGO*/
 .titulo1 {
 	position:absolute; left: 41em; top: 62em;
 }
 .input1 {
+	text-align: right;
 	position:absolute; left: 45em; top: 61.8em;
 }
 .titulo2 {
 	position:absolute; left: 40em; top: 63.5em;
 }
 .input2 {
+	text-align: right;
 	position:absolute; left: 45em; top: 63.3em;
 }
 .titulo3 {
 	position:absolute; left: 42.5em; top: 65em;
 }
 .input3 {
+	text-align: right;
 	position:absolute; left: 45em; top: 64.8em;
 }
 .titulo4 {
+	font-weight: bold;
 	position:absolute; left: 42.5em; top: 66.5em;
 }
 .input4 {
+	text-align: right;
 	position:absolute; left: 45em; top: 66.3em;
 }
