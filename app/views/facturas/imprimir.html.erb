@@ -73,29 +73,45 @@
   		<div class="bdd"<%= wicked_pdf_image_tag('clientes.png')%></div>
 		<div class="observ">
 			<div class="obs_label"><b>Observaciones</b><br></div>
-			<input class="imprimir" type="text"/><br>
+			<div class="obs_campo"><%= @factura.observaciones %></div>
 		</div>
 		<div class="num_letra">
 			<div class="num_letra_label"><b>Importe con letra</b><br></div>
-			<input class="imprimir" type="text" value="<%= cantidad_en_letras(cantidad) %>"/>
+			<div class="num_letra_campo"><%= cantidad_en_letras(cantidad) %></div>
+		</div>
+		<div class="firma_cliente">
+			DEBO(MOS) Y PAGARE(MOS) INCONDICIONALMENTE A LA ORDEN DEL INEGI EL IMPORTE TOTAL
+			QUE AMPARA ESTA FACTURA, RECONOCIENDO QUE DE NO SER LIQUIDADO DICHO IMPORTE EN
+			LA FECHA PACTADA EN LA AUTORIZACI&Oacute;N DEL CR&Eacute;DITO, CAUSAR&Aacute; UN INTER&Eacute;S DEL 5%
+			MENSUAL MAS I.V.A.<br /><br />
+			FIRMA DEL CLIENTE O REPRESENTANTE LEGAL: ____________________________________________
 		</div>
 		<div class="numeros"><br />
 			<div class="subtotal">
 				<div class="titulo1">Subtotal</div>
-				<div class="input1"><input class="imprimir" type="text" size= "10" name="subt" value="<%= number_to_currency(st) %>"></div>
+				<div class="input1"><%= number_to_currency(st) %></div>
 			</div>
 			<div class="descuento">
 				<div class="titulo2">Descuento</div>
-				<div class="input2"><input class="imprimir" type="text" size= "10" name="desc"</div>
+				<div class="input2"> </div>
 			</div>
 			<div class="iva">
 				<div class="titulo3">I.V.A.</div>
-				<div class="input3"><input class="imprimir" type="text" size= "10" name="n_iva" value="<%= number_to_currency(iva) %>" readonly="true"></div>
+				<div class="input3"><%= number_to_currency(iva) %></div>
 			</div>			
 			<div class="total">
 				<div class="titulo4">Total</div>
-				<div class="input4"><input class="imprimir" type="text" size= "10" name="tot" value="<%= number_to_currency(cantidad) %>" readonly="true"></div>
+				<div class="input4"><%= number_to_currency(cantidad) %></div>
 			</div>
-		</div>  
+		</div>
+		<div class="vigencia">
+			Comprobante impreso conforme con lo establecido en la fracci&oacute;n III del Art&iacute;culo 29-B del CFF y
+			al &uacute;ltimo p&aacute;rrafo de la fracci&oacute;n I de la Regla I.2.8.3.1.1 de la RMF 2012.<br /><br />
+			Este comprobante tendr&aacute; una vigencia de dos a&ntilde;os contados a partir de la fecha de aprobaci&oacute;n
+			de la asignaci&oacute;n de folios.
+		</div>
+		<div class="advertencia">
+			La reproducci&oacute;n ap&oacute;crifa de este comprobante constituye un delito en los t&eacute;rminos de las
+			disposiciones fiscales.
   </div>
 </div>

@@ -112,7 +112,7 @@
 .productos {
 	position:absolute; top:11em;
 }
-/*NOMBRES DE LAS COLUMNAS*/
+/*Nombre de columnas*/
 .ncol_cant {
 	text-align: center; height: 40px;
 	width: 100px;
@@ -161,7 +161,7 @@
 	border-top-right-radius:5px; /* regular */		
 	position:absolute; top:2.5em; left: 47em;
 }
-/*COLUMNAS GENERALES DE PRODUCTOS*/
+/*Columnas de datos de productos*/
 .col_cant {
 	position:absolute; top:5.1em;
 	text-align: right;
@@ -199,7 +199,7 @@
 	width: 85px; height:650px;
 	border:1px solid #554E4E;
 }
-/*CAMPOS DE LOS PRODUCTOS*/
+/*Campos de los productos*/
 #cantidad_1 {
 	position:relative;
 }
@@ -436,12 +436,16 @@
 }
 /*CODIGO BIDIMENSIONAL*/
 .bdd {
-	position:absolute; left:0px; top: 62em;
+	position:absolute; left:0px; top: 58em;
 }
 .observ {
-	position:absolute; left:100px; top: 61em;
+	border:1px solid #554E4E;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */		
+	position:absolute; left:100px; top: 57.5em;
 }
-.observ input {
+.obs_campo {
 	font-size: 1.5ex; height: 50px; width: 427px;
 }
 .obs_label {
@@ -453,9 +457,13 @@
 	border-radius:5px; /* regular */	
 }
 .num_letra {
-	position:absolute; left:100px; top: 66em;
+	border:1px solid #554E4E;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */	
+	position:absolute; left:100px; top: 62.5em;
 }
-.num_letra input {
+.num_letra_campo {
 	font-size: 1.5ex; height: 50px; width: 427px;
 }
 .num_letra_label {
@@ -466,34 +474,73 @@
 	-webkit-border-radius:5px; /* for Webkit-Browsers */
 	border-radius:5px; /* regular */	
 }
-
+.firma_cliente {
+	width: 427px; height: 50px;
+	font-size: 1ex;
+	background-color: #C0C0C0;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */
+	position:absolute; left: 12.5em; top:134em;
+}
 /*CANTIDADES PARA EL PAGO*/
 .titulo1 {
-	position:absolute; left: 41em; top: 62em;
+	position:absolute; left: 41em; top: 58em;
 }
 .input1 {
 	text-align: right;
-	position:absolute; left: 45em; top: 61.8em;
+	width: 100px;
+	border:1px solid #554E4E;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */
+	position:absolute; left: 45em; top: 57.8em;
 }
 .titulo2 {
-	position:absolute; left: 40em; top: 63.5em;
+	position:absolute; left: 40em; top: 59.5em;
 }
 .input2 {
 	text-align: right;
-	position:absolute; left: 45em; top: 63.3em;
+	width: 100px; height:1.3em;
+	border:1px solid #554E4E;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */	
+	position:absolute; left: 45em; top: 59.3em;
 }
 .titulo3 {
-	position:absolute; left: 42.5em; top: 65em;
+	position:absolute; left: 42.5em; top: 61em;
 }
 .input3 {
 	text-align: right;
-	position:absolute; left: 45em; top: 64.8em;
+	width: 100px;
+	border:1px solid #554E4E;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */	
+	position:absolute; left: 45em; top: 60.8em;
 }
 .titulo4 {
 	font-weight: bold;
-	position:absolute; left: 42.5em; top: 66.5em;
+	position:absolute; left: 42.5em; top: 62.5em;
 }
 .input4 {
 	text-align: right;
-	position:absolute; left: 45em; top: 66.3em;
+	width: 100px;
+	border:1px solid #554E4E;
+	-moz-border-radius:5px;  /* for Firefox */
+	-webkit-border-radius:5px; /* for Webkit-Browsers */
+	border-radius:5px; /* regular */	
+	position:absolute; left: 45em; top: 62.3em;
+}
+.vigencia {
+	text-align: center;
+	width: 230px;
+	position:absolute; top: 133em; left: 70em;
+	font-size: 1ex;
+}
+.advertencia {
+	width: 49em;
+	position:absolute; top: 140em; left: 15em;
+	font-size: 1ex;
 }
