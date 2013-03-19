@@ -9,6 +9,8 @@ gem 'mysql'
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 gem 'carrierwave'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
