@@ -29,7 +29,7 @@ role :web, "dev.aggerosolutions.com"                          # Your HTTP server
 role :app, "dev.aggerosolutions.com"                          # This may be the same as your `Web` server
 role :db,  "dev.aggerosolutions.com", :primary => true # This is where Rails migrations will run
 
-after "deploy:migrations", "deploy:cleanup"
+
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
