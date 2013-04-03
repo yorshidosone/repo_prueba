@@ -1,19 +1,18 @@
-require 'capistrano/ext/multistage'
-
 set :application, "facturas"
+set :repository,  "git@github.com:yorshidosone/repo_prueba.git"
+
+set :branch, "master"
 set :domain, "dev.aggerosoluttions.com"
 
 #Deploy from your local Git repo by cloning and uploading a tarball
 set :scm, :git
-set :repository,  "git@github.com:yorshidosone/repo_prueba.git"
 
+set :rails_env, "production"
 set :user, "jacevedo"
 set :scm_username, 'yorshidosone'
 
 set :stages, ["staging", "production"]
 set :default_stage, "staging"
-
-
 
 set :deploy_via, :remote_cache
 
@@ -36,12 +35,11 @@ after "deploy:migrations", "deploy:cleanup"
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
-
 # If you are using Passenger mod_rails uncomment this:
 # namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
+  # task :start do ; end
+  # task :stop do ; end
+  # task :restart, :roles => :app, :except => { :no_release => true } do
+    # run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  # end
 # end

@@ -11,6 +11,8 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem 'rvm-capistrano'
+gem 'libv8', '~> 3.11.8.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -36,7 +38,7 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
-gem 'capistrano'
+gem 'capistrano', :group => :development
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
