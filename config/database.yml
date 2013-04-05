@@ -27,11 +27,11 @@ test:
   host: localhost
   
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: facturas_production
   pool: 5
   username: jacevedo
   password: e9382a6b4a
   timeout: 5000
-  host: dev.aggerosolutions.com
+  host: localhost
