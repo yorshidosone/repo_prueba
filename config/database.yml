@@ -27,7 +27,7 @@ test:
   host: localhost
   
 production:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   database: facturas_production
   pool: 5
