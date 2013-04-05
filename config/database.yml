@@ -31,7 +31,7 @@ production:
   encoding: utf8
   database: facturas_production
   pool: 5
-  username: root
-  password: agg2012
+  username: jacevedo
+  password: e9382a6b4a
   timeout: 5000
-  host: localhost
+  host: dev.aggerosolutions.com
