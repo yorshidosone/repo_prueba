@@ -34,4 +34,4 @@ production:
   username: jacevedo
   password: e9382a6b4a
   timeout: 5000
-  host: localhost
+  host: dev.aggerosolutions.com
